@@ -1,9 +1,15 @@
 version: "3.0"
 
 stories:
+ - story: greet and check capital and population
+   steps:
+   - intent: greet
+   - action: utter_greet
+   - intent: check_capital
+   - action: capital_form
+   - active_loop: capital_form
+   - intent: check_population
+   - action: population_form
+   - active_loop: population_form
 
-- story: greet path
-  steps:
-  - intent: greet
-  - action: utter_greet
 

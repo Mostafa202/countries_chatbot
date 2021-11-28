@@ -1,10 +1,41 @@
 version: "3.0"
 
+## intents
 intents:
   - greet
   - goodbye
   - bot_challenge
+  - check_capital
+  - check_population
 
+## entities
+entities:
+  - country1
+  - country2
+
+## slots
+slots:
+  country1:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: country1
+  country2:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: country2
+
+### forms
+forms:
+  capital_form:
+    required_slots:
+        - country1
+  population_form:
+    required_slots:
+        - country2
+
+## responses of the assistant
 responses:
   utter_greet:
   - text: "Hey! How are you?"
@@ -12,8 +43,31 @@ responses:
   utter_goodbye:
   - text: "Bye"
 
+  utter_capital:
+  - text: "The capital is {country1}"
+
+  utter_population:
+  - text: "The population is {country2}"
+
+  utter_ask_country1:
+  - text: "Select the Country"
+
+  utter_ask_country2:
+  - text: "Select the Country"
+
   utter_iamabot:
   - text: "I am a bot."
+
+## actions
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_capital
+  - utter_population
+  - utter_ask_country1
+  - utter_ask_country2
+  - validate_country_form
+
 
 session_config:
   session_expiration_time: 60

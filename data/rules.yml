@@ -3,12 +3,51 @@ version: "3.0"
 rules:
 
 ## Greeting
+- rule: greet
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+## capital form
+- rule: activate capital form
+  steps:
+  - intent: check_capital
+  - action: capital_form
+  - active_loop: capital_form
+
+# submit form for capital
+- rule: submit capital form
+  condition:
+  - active_loop: capital_form
+  steps:
+  - action: capital_form
+  - active_loop: null
+  - action: utter_capital
+
+## population form
+
+- rule: activate population form
+  steps:
+  - intent: check_population
+  - action: population_form
+  - active_loop: population_form
+
+# submit form for population
+- rule: submit population form
+  condition:
+  - active_loop: population_form
+  steps:
+  - action: population_form
+  - active_loop: null
+  - action: utter_population
+
+#goodbye
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
   - action: utter_goodbye
 
-## Challenge
+## Challenges for bot
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge

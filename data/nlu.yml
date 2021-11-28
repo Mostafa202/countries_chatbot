@@ -1,6 +1,7 @@
 version: "3.0"
 
 nlu:
+#Greet intents
 - intent: greet
   examples: |
     - hey
@@ -18,7 +19,7 @@ nlu:
     - good afternoon
     - goodafternoon
 
-
+#GoodBye intents
 - intent: goodbye
   examples: |
     - cu
@@ -32,12 +33,28 @@ nlu:
     - bye bye
     - see you later
 
+#capital intents
+- intent: check_capital
+  examples: |
+    - can you tell me the cpital of [india](country1) ?
+    - what is the capital of [egypt](country1) ?
+    - capital of [australia](country1)
+    - tell me the capital of the [USA](country1)
+    - i want to know the capital of [russia](country1)
 
+#population intents
+- intent: check_population
+  examples: |
+    - i want to know the population of [india](country2)
+    - what's the population of [egypt](country2) ?
+    - population of [australia](country2)
+    - tell me the population of [japan](country2)
+    - can you tell me the population of [sweden](country2)
+
+#bot challenge
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-
-
