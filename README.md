@@ -3,12 +3,15 @@
 Installation:
 
 - create virtual environment
+
  python3 -m venv ./venv
 
 - activate venv
+
  source ./venv/bin/activate
 
 - install rasa
+
  pip install rasa
 
 -----------------------------------------------------------------
